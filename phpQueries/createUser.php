@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+
 $cFirstName = $_POST['cFirstName'];
 $cLastName = $_POST['cLastName'];
 $cPhone = $_POST['cPhone'];

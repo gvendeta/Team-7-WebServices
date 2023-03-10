@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1);
+
 $getUsername = $_POST['getUsername'];
 $getPassword = $_POST['getPassword'];
 
