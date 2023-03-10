@@ -13,13 +13,14 @@
     <input type="checkbox" id="flip">
     <div class="cover">
       <div class="front">
+        <img class="backImg" src="images/backImg.jpg" alt="">
         <div class="text">
           <span class="text-1">Every new friend is a <br> new adventure</span>
           <span class="text-2">Let's get connected</span>
         </div>
       </div>
       <div class="back">
-        <!--<img class="backImg" src="images/backImg.jpg" alt="">-->
+        <img class="backImg" src="images/backImg.jpg" alt="">
         <div class="text">
           <span class="text-1">Complete miles of journey <br> with one step</span>
           <span class="text-2">Let's get started</span>
@@ -30,15 +31,15 @@
         <div class="form-content">
           <div class="login-form">
             <div class="title">Login</div>
-          <form action="#">
+          <form action="./phpQueries/getLoginInfo.php" method="post">
             <div class="input-boxes">
               <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <i class="fas fa-user"></i>
+                <input type="text" name="getUsername" id="getUsername" placeholder="Enter your username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" name="getPassword" id="getPassword" placeholder="Enter your password" required>
               </div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
@@ -50,19 +51,31 @@
       </div>
         <div class="signup-form">
           <div class="title">Signup</div>
-        <form action="#">
+          <form action="./phpQueries/createUser.php" method="post">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Enter your name" required>
+                <input type="text" name="cFirstName" id="cFirstName" placeholder="Enter your first name" required>
               </div>
               <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Enter your email" required>
+                <i class="fas fa-user"></i>
+                <input type="text" name="cLastName" id="cLastName" placeholder="Enter your last name" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
+                <input type="text" name="cUsername" id="cUsername" placeholder="Enter your username" required>
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Enter your password" required>
+                <input type="password" name="cPassword" id="cPassword" placeholder="Enter your password" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-envelope"></i>
+                <input type="text" name="cEmail" id="cEmail" placeholder="Enter your email" required>
+              </div>
+              <div class="input-box">
+                <i class="fas fa-phone"></i>
+                <input type="number" name="cPhone" id="cPhone" placeholder="Enter your phone number" required>
               </div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
