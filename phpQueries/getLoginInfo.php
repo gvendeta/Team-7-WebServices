@@ -20,7 +20,7 @@ $sql = "SELECT 1
         WHERE username = '$getUsername'
         AND password = PASSWORD('$getPassword')";
 
-if ($conn->query($SQL) === TRUE){
+if ($conn->query($sql) === TRUE){
     if($conn->affected_rows==0){
 		echo '<script>alert("Username or password not found. Please try again.");
 		window.location.href="../loginRegister.html";
