@@ -19,7 +19,7 @@ if ($conn->connect_error){
 	die("Connection failed: ". $conn->connect_error);
 }
 
-$sql = "INSERT INTO customer(username,firstName,lastName,phoneNum,email,password) 
+$sql = "INSERT INTO Users(username,firstName,lastName,phoneNum,email,password) 
 VALUES('$cUsername','$cFirstName','$cLastName','$cPhone','$cEmail',PASSWORD('$cPassword')";
 
 if ($conn->query($sql) === TRUE) {
