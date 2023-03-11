@@ -15,13 +15,13 @@ if($conn->connect_error){
     die("Connection failed: ". $conn->connect_error);
 }
 
-$sql = "SELECT 1
+$sql = "SELECT *
         FROM Users
         WHERE username = '$getUsername'
         AND password = PASSWORD('$getPassword')";
 
 if ($conn->query($sql) === TRUE){
-    if($conn->affected_rows==0){
+    if($conn->query($sql)->fetch_column() == 0){
 		echo '<script>alert("Username or password not found. Please try again.");
 		window.location.href="../loginRegister.html";
 		</script>';
