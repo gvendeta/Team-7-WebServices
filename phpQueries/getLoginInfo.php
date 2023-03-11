@@ -20,8 +20,10 @@ $sql = "SELECT *
         WHERE username = '$getUsername'
         AND password = PASSWORD('$getPassword')";
 
+$result = mysqli_query($conn, $sql);
+
 if ($conn->query($sql) === TRUE){
-    if($conn->query($sql)->fetch_column() == 0){
+    if($result->num_rows == 0){
 		echo '<script>alert("Username or password not found. Please try again.");
 		window.location.href="../loginRegister.html";
 		</script>';
