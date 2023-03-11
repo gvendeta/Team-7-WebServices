@@ -22,7 +22,7 @@ $sql = "SELECT *
 
 $result = mysqli_query($conn, $sql);
 
-if ($conn->query($sql) === TRUE){
+
     if($result->num_rows == 0){
 		echo '<script>alert("Username or password not found. Please try again.");
 		window.location.href="../loginRegister.html";
@@ -31,12 +31,7 @@ if ($conn->query($sql) === TRUE){
 		 echo '<script>
 		        window.location.href="../index.html";
 		</script>';
-	 }
- } else {
- 	echo '<script>alert("Could not connect to database. Please try again.");
-	 window.location.href="../loginRegister.html";
-	 </script>';
- }
-
+	 } 
+     
  $conn->close();
 ?>
