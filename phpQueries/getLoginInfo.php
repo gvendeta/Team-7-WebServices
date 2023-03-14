@@ -29,7 +29,7 @@ $result = mysqli_query($conn, $sql);
 		</script>';
 	 } else{
 		 echo '<script>
-		        window.location.href="../index.html";
+		        window.location.href="../home/home.html";
 		</script>';
 	 } 
      
