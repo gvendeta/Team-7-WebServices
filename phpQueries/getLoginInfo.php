@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set('display_errors', 1);
 
 $getUsername = $_POST['getUsername'];
@@ -15,7 +16,7 @@ if($conn->connect_error){
     die("Connection failed: ". $conn->connect_error);
 }
 
-$sql = "SELECT *
+$sql = "SELECT usersID, username, password
         FROM Users
         WHERE username = '$getUsername'
         AND password = PASSWORD('$getPassword')";
@@ -24,13 +25,13 @@ $result = mysqli_query($conn, $sql);
 
 
     if($result->num_rows == 0){
-		echo '<script>alert("Username or password not found. Please try again.");
-		window.location.href="../loginRegister.html";
-		</script>';
+		header("Location: ../loginRegister.php?login=failed");
+
 	 } else{
-		 echo '<script>
-		        window.location.href="../home/home.html";
-		</script>';
+		$row = mysqli_fetch_array($result);
+		$_SESSION['usersID'] = $row['usersID'];
+		
+		 header("Location: ../home/home.html");
 	 } 
      
  $conn->close();

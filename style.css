@@ -6,6 +6,7 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
+
 body{
   min-height: 100vh;
   display: flex;
@@ -121,6 +122,7 @@ body{
   width: 25px;
   background: #7d2ae8;
 }
+
 .forms .signup-form  .title:before{
   width: 20px;
 }
@@ -146,6 +148,7 @@ body{
   border-bottom: 2px solid rgba(0,0,0,0.2);
   transition: all 0.3s ease;
 }
+
 .form-content .input-box input:focus,
 .form-content .input-box input:valid{
   border-color: #7d2ae8;
@@ -166,6 +169,7 @@ body{
 .forms .form-content .text a:hover{
   text-decoration: underline;
 }
+
 .forms .form-content .button{
   color: #fff;
   margin-top: 40px;
@@ -185,6 +189,7 @@ body{
   color: #5b13b9;
   cursor: pointer;
 }
+
 .forms .form-content label:hover{
   text-decoration: underline;
 }
@@ -200,6 +205,7 @@ body{
   .container .cover{
     display: none;
   }
+
   .form-content .login-form,
   .form-content .signup-form{
     width: 100%;

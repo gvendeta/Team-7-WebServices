@@ -31,6 +31,7 @@
         <div class="form-content">
           <div class="login-form">
             <div class="title">Login</div>
+
           <form action="./phpQueries/getLoginInfo.php" method="post">
             <div class="input-boxes">
               <div class="input-box">
@@ -41,6 +42,7 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="getPassword" id="getPassword" placeholder="Enter your password" required>
               </div>
+              <div id="invalidCred" style="color:red;font-size:14px;visibility:hidden">Incorrect username or password</div>
               <div class="text"><a href="#">Forgot password?</a></div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
@@ -48,9 +50,17 @@
               <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
             </div>
         </form>
+        <?php
+          $fullURL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+          if(strpos($fullURL, "login=failed") == true){
+            echo '<style>#invalidCred{visibility: visible !important;}</style>';
+          }
+        ?>
       </div>
         <div class="signup-form">
           <div class="title">Signup</div>
+          
           <form action="./phpQueries/createUser.php" method="post">
             <div class="input-boxes">
               <div class="input-box">

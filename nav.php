@@ -1,3 +1,7 @@
+<?php
+    session_start();
+?>
+        
         <div id="nav-bar">
          <nav class="navbar navbar-expand-lg bg-light">
              <div class="container-fluid">
@@ -22,7 +26,7 @@
                              <a class="nav-link " href="/settings.html">Settings</a>
                          </li>
                      </ul>
-                     <form class="d-flex" role="search" action="../loginRegister.html">
+                     <form class="d-flex" role="search" action="../loginRegister.php">
                          <button class="btn btn-outline-primary" type="submit" >Logout</button>
                      </form>
                  </div>
