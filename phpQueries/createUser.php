@@ -25,16 +25,16 @@ VALUES('$cUsername','$cFirstName','$cLastName','$cPhone','$cEmail',PASSWORD('$cP
 if ($conn->query($sql) === TRUE) {
 	if($conn->affected_rows==0){
 		echo '<script>alert("We had trouble creating your account. Please try again.");
-		window.location.href="../loginRegister.html";
+		window.location.href="../index.php";
 		</script>';
 	 } else{
 		 echo '<script>alert("Account created successfully.");
-		window.location.href="../loginRegister.html";
+		window.location.href="../index.php";
 		</script>';
 	 }
  } else {
  	echo '<script>alert("Could not connect to database. Please try again.");
-	 window.location.href="../loginRegister.html";
+	 window.location.href="../index.php";
 	 </script>';
  }
 

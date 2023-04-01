@@ -1,6 +1,6 @@
 <?php
 session_start();
-ini_set('display_errors', 1);
+
 
 $getUsername = $_POST['getUsername'];
 $getPassword = $_POST['getPassword'];
@@ -23,9 +23,8 @@ $sql = "SELECT usersID, username, password
 
 $result = mysqli_query($conn, $sql);
 
-
     if($result->num_rows == 0){
-		header("Location: ../loginRegister.php?login=failed");
+		header("Location: ../index.php?login=failed");
 
 	 } else{
 		$row = mysqli_fetch_array($result);
@@ -34,5 +33,5 @@ $result = mysqli_query($conn, $sql);
 		 header("Location: ../home/home.html");
 	 } 
      
- $conn->close();
+
 ?>
