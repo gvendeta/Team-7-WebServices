@@ -38,6 +38,10 @@ body{
 .container #flip:checked ~ .cover{
   transform: rotateY(-180deg);
 }
+.container #flipBack:checked ~ .cover{
+  transform: rotateY(180deg);
+}
+
  .container .cover .front,
  .container .cover .back{
   position: absolute;

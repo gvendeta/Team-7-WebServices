@@ -1,9 +1,5 @@
 <?php 
 include './phpQueries/getUserInfo.php';
-
-if(!isset($_SESSION['usersID'])){
-    header("Location: ../index.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -198,10 +194,11 @@ $(function(){
     <p class="mb-2">Create Password</p>
     <p class="small text-muted mb-2">Password Requirements</p>
     <ul class="small text-muted pl-4 mb-0">
-    <li>Minimum 8 character</li>
+    <li>Minimum 8 characters</li>
     <li>At least one special character</li>
+    <li>At least one uppercase letter</li>
+    <li>At least one lowercase letter</li>
     <li>At least one number</li>
-    <li>Can’t be the same as a previous password</li>
     </ul>
     </div>
     </div>
@@ -215,9 +212,7 @@ $(function(){
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript"
-
->
+<script type="text/javascript">
 </script>
 </body>
 </html>
