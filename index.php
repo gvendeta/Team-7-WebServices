@@ -42,44 +42,17 @@
                 <i class="fas fa-lock"></i>
                 <input type="password" name="getPassword" id="getPassword" placeholder="Enter your password" required>
               </div>
-              <div id="invalidCred" style="color:red;font-size:14px;visibility:hidden">Incorrect username or password</div>
+              <div id="invalidCred" style="color:red;font-size:14px;visibility:hidden;display:none">Incorrect username or password</div>
               <div class="text"><a href="./resetPassword.php">Forgot password?</a></div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">
               </div>
+              <div id="accountCreated" style="color:green;font-size:14px;visibility:hidden;display:none">Account created successfully</div>
               <div class="text sign-up-text">Don't have an account? <label for="flip">Sigup now</label></div>
             </div>
         </form>
         <?php
-          $fullURL = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-          if(strpos($fullURL, "login=failed") == true){
-            echo '<style>#invalidCred{visibility: visible !important;}</style>';
-
-          } else if(strpos($fullURL, "username=failed") == true){
-            echo '<script>
-            $(document).ready(function(){ 
-              $("#flip").prop("checked", true);
-            });
-            </script>';
-            echo '<style>#invalidUser{visibility: visible !important;}</style>';
-
-          } else if(strpos($fullURL, "confirm=failed") == true){
-            echo '<script>
-            $(document).ready(function(){ 
-              $("#flip").prop("checked", true);
-            });
-            </script>';
-            echo '<style>#invalidPassword{visibility: visible !important;}</style>';
-          } else if (strpos($fullURL, "password=failed") == true){
-            echo '<script>
-            $(document).ready(function(){ 
-              $("#flip").prop("checked", true);
-              $("#invalidPass").show();
-            });
-            </script>';
-            echo '<style>#invalidPass{visibility: visible !important;}</style>';
-          }
+        include './verify.php';
         ?>
       </div>
         <div class="signup-form">

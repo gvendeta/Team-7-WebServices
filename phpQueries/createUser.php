@@ -1,6 +1,5 @@
 <?php
-ini_set('display_errors', 1);
-
+$url;
 $cFirstName = $_POST['cFirstName'];
 $cLastName = $_POST['cLastName'];
 $cPhone = $_POST['cPhone'];
@@ -15,36 +14,33 @@ $number    = preg_match('@[0-9]@', $cPassword);
 $specialChars = preg_match('@[^\w]@', $cPassword);
 
 if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($cPassword) < 8) {
-	header("Location: ../index.php?password=failed");
+	$url ='password=failed';
 }
 
 
-$hostname = "us-cdbr-east-06.cleardb.net";
-$username = "bc9584bcd61cfa";
-$password = "2eff0d16";
-$db = "heroku_66e277c8cfa9bb9";
+include '../db.php';
 
-$conn = new mysqli($hostname, $username, $password, $db);
+$usernameSQL = "SELECT username FROM users WHERE username = '$cUsername'";
+$result = mysqli_query($conn, $usernameSQL);
 
-if ($conn->connect_error){
-	die("Connection failed: ". $conn->connect_error);
+if($result->num_rows > 0){
+	$url .='username=failed';
 }
 
-$usernameSQL = "SELECT username FROM users WHERE username = $username";
-$result = mysqli_query($conn, $sql);
-
-if($result->num_rows != 0){
-	header("Location: ../index.php?username=failed");
+if($cPassword != $cConPassword){
+	$url .='confirm=failed';
 }
 
-if($cPassword == $cConPassword){
+if(isset($url)){
+	header("Location: ../index.php?'$url'");
+	die();
+} else {
+	$url = 'account=pass';
+}
 
 $sql = "INSERT INTO Users(username,firstName,lastName,phoneNum,email,password) 
 VALUES('$cUsername','$cFirstName','$cLastName','$cPhone','$cEmail',PASSWORD('$cPassword'))";
 
-} else {
-	header("Location: ../index.php?confirm=failed");
-}
 
 if ($conn->query($sql) === TRUE) {
 	if($conn->affected_rows==0){
@@ -52,17 +48,13 @@ if ($conn->query($sql) === TRUE) {
 		window.location.href="../index.php";
 		</script>';
 	 } else{
-		 echo '<script>alert("Account created successfully.");
-		window.location.href="../index.php";
-		</script>';
+		header("Location: ../index.php?'$url'");
+
 	 }
  } else {
  	echo '<script>alert("Could not connect to database. Please try again.");
 	 window.location.href="../index.php";
 	 </script>';
  }
-
-$conn->close();
-
 
 ?>
