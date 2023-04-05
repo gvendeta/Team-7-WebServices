@@ -12,17 +12,14 @@ Team 7
   **Please note:** All requested screenshots can be viewed in the **_Sprint1Images_** folder
   
   **Sprint 2:**
-    
-    **Yesterday's Weather:**
+  
+   **Yesterday's Weather:**
                         Raw Velocity: (19)
                         Normalized Velocity: (24)
-                        
         Due to the normalized velocity of the team being 24, the team should be able to work _24 story points_ next sprint.
         
-  
-    Link to Jira board: https://swe6813team7.atlassian.net/jira/software/projects/PP/boards/1
+   Link to Jira board: https://swe6813team7.atlassian.net/jira/software/projects/PP/boards/1
 
-    Link to working Web App: https://gamermatch.herokuapp.com/
-    **Please note:** All requested screenshots can be viewed in the **_Sprint2Images_** folder
-    
-    **Sprint 3:**
+   Link to working Web App: https://gamermatch.herokuapp.com/
+   
+   **Please note:** All requested screenshots can be viewed in the **_Sprint2Images_** folder
