@@ -99,7 +99,7 @@ $(function(){
     <span id="display_value"></span><br><br>
     </div>
     <div class="form-group">
-        
+
     <input name="agepreference1" value="0" type="hidden">
     <input name="agepreference2" value="0" type="hidden">
     <input name="agepreference3" value="0" type="hidden">
@@ -171,8 +171,9 @@ $(function(){
     <hr class="my-4">
     <div>
     <button type="submit"  class="btn btn-primary">Submit</button>
+    <button type="reset"  class="btn btn-primary">Reset</button>
+
     </form>
-    <button type="submit"  class="btn btn-primary">Reset</button>
     </div>
 
 </div>
