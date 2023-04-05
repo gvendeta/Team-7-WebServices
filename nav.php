@@ -16,10 +16,7 @@
                              <a class="nav-link " href="../conversation/conversation.html">Messages</a>
                          </li>
                          <li class="nav-item" target="_top">
-                             <a class="nav-link " href="/userInformation.html">Profile</a>
-                         </li>
-                         <li class="nav-item" target="_top">
-                             <a class="nav-link " href="/settings.php">Settings</a>
+                             <a class="nav-link " href="/settings.php">Profile</a>
                          </li>
                      </ul>
                      <form class="d-flex" role="search" action="../index.php">
