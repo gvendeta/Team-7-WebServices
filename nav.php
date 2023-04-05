@@ -13,7 +13,7 @@
                              <a class="nav-link" aria-current="page" href="../home/home.php">Home</a>
                          </li>
                          <li class="nav-item" target="_top">
-                             <a class="nav-link " href="../conversation/conversation.html">Messages</a>
+                             <a class="nav-link " href="../conversation/conversation.php">Messages</a>
                          </li>
                          <li class="nav-item" target="_top">
                              <a class="nav-link " href="/settings.php">Profile</a>
