@@ -16,6 +16,9 @@
                              <a class="nav-link " href="../conversation/conversation.php">Messages</a>
                          </li>
                          <li class="nav-item" target="_top">
+                             <a class="nav-link " href="/PlayerMatch.php">Find Users</a>
+                         </li>
+                         <li class="nav-item" target="_top">
                              <a class="nav-link " href="/settings.php">Profile</a>
                          </li>
                      </ul>

@@ -21,12 +21,27 @@ img {
 .text-muted {
     font-weight: 300;
 }
+  </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    </style>
 <head>
   <meta charset="UTF-8">
   <title>Matchmaking Based on a Skillset from 1 through 10</title>
 </head>
+
+ <!--Navigation bar-->
+ <body class="navbarbody">
+ <div id="nav-placeholder"></div>
+</body>
+
+<script>
+$(function(){
+  $("#nav-placeholder").load("../nav.php");
+});
+</script>
+<!--end of Navigation bar-->
+
 <body>
   <h1>Matchmaking Players Based on a Skillset</h1>
   <form action = "connect.php" method="post">

@@ -68,13 +68,6 @@ $(function(){
 });
 </script>
 
-<script>
-    function display_value(x)
-    {
-        document.getElementById("display_value").innerHTML=x;
-    }
-</script>
-
 <!--end of Navigation bar-->
 <div class="container">
 <div class="row justify-content-center">
