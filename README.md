@@ -22,4 +22,8 @@ Team 7
 
    Link to working Web App: https://gamermatch.herokuapp.com/
    
+   Daily Scrum Meeting: [Click Here](https://kennesawedu.sharepoint.com/:v:/s/Team-Webservices-Team7/Ee4vLF9kv2NLiKUCC9KKYlsBB36ON2y_mC9MWT4zGk4ogg?e=SJLA08)
+   
+   Sprint Review: [Click Here](https://kennesawedu.sharepoint.com/:v:/s/Team-Webservices-Team7/ET1BznyNCiRJoAhh162TosoBRdOs7h1FuwE7IkWy0Fm78w?e=uOpXxW)
+   
    **Please note:** All requested screenshots can be viewed in the **_Sprint2Images_** folder
