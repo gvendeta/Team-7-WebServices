@@ -1,11 +1,12 @@
-
+<?php 
+include './phpQueries/getUserPreferences.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 
 
-<title>Settings Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
@@ -53,8 +54,6 @@ img {
     </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
 </head>
 <body>
     <!--Navigation bar-->
@@ -88,31 +87,26 @@ $(function(){
     <div class="form-group">
     <h2>Player Behavioral skills and Preferences</h2>
     <label for="skillLevel"> Rate your skill level (between 1 - 10):</label>
-    <input type="range" id="skillLevel" name="skillLevel" min="1" max="10" onchange="display_value(this.value)">
+    <input type="number" id="skillLevel" name="skillLevel" min="1" max="10" value = "<?php echo $skillLevel ?>">
     <span id="display_value"></span><br><br>
     </div>
     <div class="form-group">
 
-    <input name="agepreference1" value="0" type="hidden">
-    <input name="agepreference2" value="0" type="hidden">
-    <input name="agepreference3" value="0" type="hidden">
-    <input name="agepreference4" value="0" type="hidden">
-    <input name="agepreference5" value="0" type="hidden">
-
     <p> Age preference to match players (Can select multiple)</p>
-    <input type="checkbox" id="1" name="agepreference1" value='0'>
+    <input type="checkbox" id="1" name="agepreference1" value='0' <?php echo $agepreference1 ? 'checked="checked"' : '';?>>
     <label for="1"> 15-25 </label><br>
-    <input type="checkbox" id="2" name="agepreference2" value='0'>
+    <input type="checkbox" id="2" name="agepreference2" value='0' <?php echo $agepreference2 ? 'checked="checked"' : '';?>>
     <label for="2"> 26-35 </label><br>
-    <input type="checkbox" id="3" name="agepreference3" value='0'>
+    <input type="checkbox" id="3" name="agepreference3" value='0' <?php echo $agepreference3 ? 'checked="checked"' : '';?>>
     <label for="3"> 36-45 </label><br>
-    <input type="checkbox" id="4" name="agepreference4" value='0'>
+    <input type="checkbox" id="4" name="agepreference4" value='0' <?php echo $agepreference4 ? 'checked="checked"' : '';?>>
     <label for="4"> 46-55 </label><br>
-    <input type="checkbox" id="5" name="agepreference5" value='0'>
+    <input type="checkbox" id="5" name="agepreference5" value='0' <?php echo $agepreference5 ? 'checked="checked"' : '';?>>
     <label for="5"> 55+ </label><br><br>
     </div>
-<script>console.log( $('#2').val());</script>
     <script>
+
+
     $('#1').on('change', function(){
         $('#1').val(this.checked ? 1 : 0);
     });
@@ -132,17 +126,19 @@ $(function(){
     $('#5').on('change', function(){
     $('#5').val(this.checked ? 1 : 0);
     });
+
+
 </script>
 
     <div class="form-row">
     <p> Play-style</p>
     <ul>
         <li>
-        <input type="radio" id="1" name ="playstyle" value="aggressively">
+        <input type="radio" id="playstyle1" name ="playstyle" value="aggressively">
         <label for="1">I prefer to play aggressively.</label>
         </li>
         <li>
-        <input type="radio" id="2" name ="playstyle" value="defensively">
+        <input type="radio" id="playstyle2" name ="playstyle" value="defensively">
         <label for="2">I prefer to play defensively.</label>
         </li>
     </ul>
@@ -152,20 +148,27 @@ $(function(){
     <p> Team formation style</p>
     <ul>
         <li>
-        <input type="radio" id="1" name ="teamformationstyle" value="team">
+        <input type="radio" id="teamformationstyle1" name ="teamformationstyle" value="team">
         <label for="1">I prefer to play as a team.</label>
         </li>
         <li>
-        <input type="radio" id="2" name ="teamformationstyle" value="solo">
+        <input type="radio" id="teamformationstyle2" name ="teamformationstyle" value="solo">
         <label for="2">I prefer to play solo.</label>
         </li>
     </ul>
     </div>
+
+    <script>
+        var value = '<?php echo $playstyle; ?>'
+     $('input[name=playstyle][value=' + value + ']').prop('checked', true);
+
+        var value2 = '<?php echo $teamformationstyle; ?>'
+     $('input[name=teamformationstyle][value=' + value2 + ']').prop('checked', true);
+    </script>
+    
     <hr class="my-4">
     <div>
     <button type="submit"  class="btn btn-primary">Submit</button>
-    <button type="reset"  class="btn btn-primary">Reset</button>
-
     </form>
     </div>
 
@@ -174,7 +177,6 @@ $(function(){
 </div>
 </div>
 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 </script>
 </body>
