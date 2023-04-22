@@ -1,3 +1,7 @@
+<?php 
+include './phpQueries/getUserPreferences.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <style type="text/css">
@@ -23,7 +27,6 @@ img {
 }
   </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <head>
   <meta charset="UTF-8">
@@ -41,60 +44,86 @@ $(function(){
 });
 </script>
 <!--end of Navigation bar-->
-
 <body>
   <h1>Matchmaking Players Based on a Skillset</h1>
-  <form action = "connect.php" method="post">
+  <form action="./phpQueries/FindUsers.php" method="post">
     <div class="col-md-3 text-center mb-5">
-      <div class="avatar avatar-xl">
-      <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="..." class="" />
-      </div>
-      </div>
-      <div class="col">
-        <div class="row align-items-center">
-        <div class="col-md-7">
-        <h4 class="mb-1">MacLovin</h4>
-        <p class="small mb-3"><span class="badge badge-dark">New York, USA</span></p>
-        </div>
-        </div>
-        <div class="row mb-4">
-        <div class="col-md-7">
-        <p class="text-muted">
-        Gamer's Bio.
-        </p>
-        </div>
-    <label for="number">Please rank your skillset from a 1 to 10:</label>
-    <input type="number" id="number" name="number" min="1" max="10" required><br>
-    <label for="username">Please enter username:</label>
-    <input type="username" id="username" name="username" min="" max="" required><br>
-    <label for="game">Please enter game of choice:</label>
-    <input type="game" id="game" name="game" min="" max="" required><br>
-    <label for="age">Please enter player age preference:</label>
-    <input type="age" id="age" name="age" min="" max="" required>
+    <div class="form-group">
+    <p> Age preference to match players (Can select multiple)</p>
+    <input type="checkbox" id="agepreference1" name="agepreference1" <?php echo $agepreference1 ? 'checked="checked"' : '';?>>
+    <label for="agepreference1"> 15-25 </label><br>
+    <input type="checkbox" id="agepreference2" name="agepreference2" <?php echo $agepreference2 ? 'checked="checked"' : '';?>>
+    <label for="agepreference2"> 26-35 </label><br>
+    <input type="checkbox" id="agepreference3" name="agepreference3" <?php echo $agepreference3 ? 'checked="checked"' : '';?>>
+    <label for="agepreference3"> 36-45 </label><br>
+    <input type="checkbox" id="agepreference4" name="agepreference4" <?php echo $agepreference4 ? 'checked="checked"' : '';?>>
+    <label for="agepreference4"> 46-55 </label><br>
+    <input type="checkbox" id="agepreference5" name="agepreference5" <?php echo $agepreference5 ? 'checked="checked"' : '';?>>
+    <label for="agepreference5"> 55+ </label><br><br>
+    </div>
+
+    <div class="form-row">
+    <p> Play-style</p>
+    <ul>
+        <li>
+        <input type="radio" id="playstyle1" name ="playstyle" value="aggressively">
+        <label for="1">I prefer to play aggressively.</label>
+        </li>
+        <li>
+        <input type="radio" id="playstyle2" name ="playstyle" value="defensively">
+        <label for="2">I prefer to play defensively.</label>
+        </li>
+    </ul>
+    </div>
+
+    <div class="form-row">
+    <p> Team formation style</p>
+    <ul>
+        <li>
+        <input type="radio" id="teamformationstyle1" name ="teamformationstyle" value="team">
+        <label for="teamformationstyle1">I prefer to play as a team.</label>
+        </li>
+        <li>
+        <input type="radio" id="teamformationstyle2" name ="teamformationstyle" value="solo">
+        <label for="teamformationstyle2">I prefer to play solo.</label>
+        </li>
+    </ul>
+    </div>
+
+  <script>
+    $(document).ready(function(){ 
+      
+      var value = '<?php echo $playstyle; ?>'
+       $('input[name=playstyle][value=' + value + ']').prop('checked', true);
+
+       var value2 = '<?php echo $teamformationstyle; ?>'
+       $('input[name=teamformationstyle][value=' + value2 + ']').prop('checked', true);
+
+    });
+
+    $(document).on('change','#agepreference1',function(){
+      $('#agepreference1').val(this.checked ? 1 : 0);
+      console.log($('#agepreference1').val());
+
+});
+    $(document).on('change','#agepreference2',function(){
+      $('#agepreference2').val(this.checked ? 1 : 0);
+});
+    $(document).on('change','#agepreference3',function(){
+      $('#agepreference3').val(this.checked ? 1 : 0);
+});
+    $(document).on('change','#agepreference4',function(){
+      $('#agepreference4').val(this.checked ? 1 : 0);
+});
+    $(document).on('change','#agepreference5',function(){
+      $('#agepreference5').val(this.checked ? 1 : 0);
+});
+  </script>
     <br><br>
-    <button type="submit">Submit</button>
+    <button type="submit" name="submit">Submit</button>
   </form>
   
   <div id="result"></div>
-
-  <script>
-    const form = document.querySelector('form');
-    const resultDiv = document.getElementById('result');
-    
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
-      const number = parseInt(document.getElementById('number').value);
-      
-      if (number >= 1 && number <= 3) {
-        resultDiv.textContent = "You are a good match for: Newb123, Yolo234, XYZ987";
-      } else if (number >= 4 && number <= 7) {
-        resultDiv.textContent = "You are a decent match for: QWE765, Roady777, Chilling69";
-      } else if (number >= 8 && number <= 10) {
-        resultDiv.textContent = "You are a great match for: Whodat222, sHiFtY666, Watchdog45";
-      } else {
-        resultDiv.textContent = "Please enter a valid number between 1 and 10.";
-      }
-    });
-  </script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 </body>
 </html>

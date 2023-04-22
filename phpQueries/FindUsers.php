@@ -133,9 +133,7 @@ if(isset($_POST)){
               <ul class='hobbies ulList'>
             <li class ='liResults'>Skill Level: " . "<b>".$row['skillLevel']."</b></li>
             <li class ='liResults'>Team Formation: " . "<b>".$row['teamformationstyle']."</b></li>
-            <li class ='liResults'>Play Style: " . "<b>".$row['playstyle']."</b></li></ul></li>
-          
-            ";
+            <li class ='liResults'>Play Style: " . "<b>".$row['playstyle']."</b></li></ul></li>";
   }
  }
 }

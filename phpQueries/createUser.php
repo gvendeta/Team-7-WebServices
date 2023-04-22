@@ -7,6 +7,7 @@ $cEmail = $_POST['cEmail'];
 $cUsername = $_POST['cUsername'];
 $cPassword = $_POST['cPassword'];
 $cConPassword = $_POST['cConPassword'];
+$cAge = $_POST['cAge'];
 
 $uppercase = preg_match('@[A-Z]@', $cPassword);
 $lowercase = preg_match('@[a-z]@', $cPassword);
@@ -38,9 +39,8 @@ if(isset($url)){
 	$url = 'account=pass';
 }
 
-$sql = "INSERT INTO Users(username,firstName,lastName,phoneNum,email,password) 
-VALUES('$cUsername','$cFirstName','$cLastName','$cPhone','$cEmail',PASSWORD('$cPassword'))";
-
+$sql = "INSERT INTO Users(username,firstName,lastName,age,phoneNum,email,password) 
+VALUES('$cUsername','$cFirstName','$cLastName','$cAge','$cPhone','$cEmail',PASSWORD('$cPassword'))";
 
 if ($conn->query($sql) === TRUE) {
 	if($conn->affected_rows==0){

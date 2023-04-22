@@ -58,6 +58,7 @@ img {
    $(document).ready(function(){
     $('#firstname').prop('disabled', true);
     $('#lastname').prop('disabled', true);
+    $('#age').prop('disabled', true);
     $('#inputEmail4').prop('disabled', true);
     $('#inputAddress5').prop('disabled', true);
     $('#inputState5').prop('disabled', true);
@@ -68,6 +69,7 @@ img {
     $('#pageEdit').click(function(){
         $('#firstname').prop('disabled', false);
         $('#lastname').prop('disabled', false);
+        $('#age').prop('disabled', false);
         $('#inputEmail4').prop('disabled', false);
         $('#inputAddress5').prop('disabled', false);
         $('#inputState5').prop('disabled', false);
@@ -144,6 +146,10 @@ $(function(){
     <div class="form-group col-md-6">
     <label for="lastname">Lastname</label>
     <input type="text" required name="lastname" id="lastname" class="form-control" value="<?php echo $lastName;?>" />
+    </div>
+    <div class="form-group col-md-6">
+    <label for="lastname">Age</label>
+    <input type="number" required name="age" id="age" class="form-control" value="<?php echo $age;?>" />
     </div>
     </div>
     <div class="form-group">
