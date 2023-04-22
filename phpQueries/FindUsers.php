@@ -62,6 +62,12 @@
      font-style: italic;
      margin-top: 5px;
    }
+   .user-email {
+     font-size: 18px;
+     font-style: italic;
+     margin-top: 5px;
+     white-space: nowrap;
+   }
  </style>
 <head>
   <meta charset="UTF-8">
@@ -130,6 +136,7 @@ if(isset($_POST)){
               <img class='user-pic' src='https://bootdey.com/img/Content/avatar/avatar7.png' alt='{$row['firstName']} Profile Picture'>
               <span class ='results'>{$row['firstName']} "."{$row['lastName']}</span>
               <p class='user-age'>Age: {$row['Age']}</p>
+              <p class='user-email'>Email: <a href='mailto:{$row['email']}?subject= GamerMatch: I Want to Play with You'>Click Here</a></p>
               <ul class='hobbies ulList'>
             <li class ='liResults'>Skill Level: " . "<b>".$row['skillLevel']."</b></li>
             <li class ='liResults'>Team Formation: " . "<b>".$row['teamformationstyle']."</b></li>
