@@ -128,7 +128,7 @@ $result = $conn->query($sql);
 
 if(isset($_POST)){
  if($result->num_rows == 0){
-  echo header('Location: ../PlayerMatch.php');
+  header("Location: ../PlayerMatch.php?search=noresults");
  } else {
   while($row = mysqli_fetch_assoc($result)) {
     echo "

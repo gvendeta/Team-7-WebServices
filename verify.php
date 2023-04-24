@@ -47,6 +47,16 @@
     </script>';
     echo '<style>#invalidPassword{visibility: visible !important;}</style>';
     } 
+
+    if (strpos($fullURL, "search=noresults") == true) {
+
+        echo '<style>#noResults{visibility: visible !important;}</style>';
+        echo '<script>
+        $(document).ready(function(){ 
+            $("#noResults").show();
+        });
+        </script>';
+    }
 }
     
 ?>

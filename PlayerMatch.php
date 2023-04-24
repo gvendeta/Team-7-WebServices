@@ -122,7 +122,12 @@ $(function(){
     <br><br>
     <button type="submit" name="submit">Submit</button>
   </form>
-  
+
+  <?php
+    include './verify.php';
+  ?>
+  <div id="noResults" style="color:red;font-size:14px;visibility:hidden;display:none">No users match your search criteria.</div>
+
   <div id="result"></div>
   <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 </body>
