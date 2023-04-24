@@ -220,7 +220,7 @@ section {
     <li><a href="../settings.php">Profile</a></li>
   </ul>
   <div class="right">
-   <form action="../index.php">
+   <form action="../logout.php">
     <button>Logout</button>
    </form>
   </div>
