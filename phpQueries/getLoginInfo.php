@@ -30,7 +30,7 @@ $result = mysqli_query($conn, $sql);
 		$row = mysqli_fetch_array($result);
 		$_SESSION['usersID'] = $row['usersID'];
 		
-		 header("Location: ../home/home.php");
+		 header("Location: ../home.php");
 	 } 
      
 

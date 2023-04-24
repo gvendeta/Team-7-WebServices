@@ -14,8 +14,12 @@ $lowercase = preg_match('@[a-z]@', $cPassword);
 $number    = preg_match('@[0-9]@', $cPassword);
 $specialChars = preg_match('@[^\w]@', $cPassword);
 
+if($cAge < 15){
+	$url ='age=failed';
+}
+
 if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($cPassword) < 8) {
-	$url ='password=failed';
+	$url .='password=failed';
 }
 
 
@@ -39,7 +43,7 @@ if(isset($url)){
 	$url = 'account=pass';
 }
 
-$sql = "INSERT INTO Users(username,firstName,lastName,age,phoneNum,email,password) 
+$sql = "INSERT INTO Users(username,firstName,lastName,Age,phoneNum,email,password) 
 VALUES('$cUsername','$cFirstName','$cLastName','$cAge','$cPhone','$cEmail',PASSWORD('$cPassword'))";
 
 if ($conn->query($sql) === TRUE) {

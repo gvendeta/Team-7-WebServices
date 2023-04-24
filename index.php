@@ -70,6 +70,11 @@
               </div>
               <div class="input-box">
                 <i class="fas fa-user"></i>
+                <input type="number" name="cAge" id="cAge" placeholder="Enter your Age" required>
+              </div>
+              <div id="invalidAge" style="color:red;font-size:14px;visibility:hidden">Minimum age allowed is 15</div>
+              <div class="input-box">
+                <i class="fas fa-user"></i>
                 <input type="text" name="cUsername" id="cUsername" placeholder="Enter your username" required>
               </div>
               <div id="invalidUser" style="color:red;font-size:14px;visibility:hidden">Username already exists.</div>

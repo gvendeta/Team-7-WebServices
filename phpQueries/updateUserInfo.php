@@ -2,6 +2,7 @@
 
 $cfirstName = $_POST['firstname'];
 $clastName = $_POST['lastname'];
+$cAge = $_POST['age'];
 $cemail = $_POST['inputEmail'];
 $caddress = $_POST['inputAddress'];
 $cstate = $_POST['inputState'];
@@ -20,6 +21,10 @@ $specialChars = preg_match('@[^\w]@', $newPass);
 
 include '../db.php';
 include '../session.php';
+        if($cAge < 15){
+          header("Location: ../settings.php?age=failed");
+          die();
+        }
 
         if($oldPass != '' && $newPass != '' && $confirmPass != ''){
                 if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($newPass) < 8) {
@@ -56,6 +61,7 @@ include '../session.php';
 $sql = "UPDATE Users
         SET firstName = '$cfirstName',
         lastname = '$clastName',
+        Age = '$cAge',
         email = '$cemail',
         streetAddress = '$caddress',
         stateID = (SELECT stateID FROM state WHERE state ='$cstate'),

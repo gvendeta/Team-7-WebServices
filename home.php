@@ -1,5 +1,5 @@
 <?php 
-include '../session.php';
+include './phpQueries/getUserInfo.php';
 ?>
 
 <html lang="en">
@@ -28,30 +28,16 @@ $(function(){
   $("#nav-placeholder").load("../nav.php");
 });
 </script>
-<h2 class="h3 mb-4 page-title">Welcome Home, Gamer!</h2>
+<h2 class="h3 mb-4 page-title">Welcome Home, <?php echo $firstName;?>!</h2>
 <div class="my-4">
 <ul class="nav nav-tabs mb-4" id="myTab" role="tablist">
 <li class="nav-item">
-<a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="false">User List</a>
-</li>
-
-<li class="nav-item">
 <a class="nav-link active" href="./preferences.php">Preferences</a>
 </li>
-
 <li class="nav-item">
-    <a class="nav-link active" href="./settings.php">Settings</a>
+    <a class="nav-link active" href="./settings.php">Profile</a>
 </li>
 
-<li class="nav-item">
-    <a class="nav-link active" href="./conversation.php">Messanger</a>
-</li>
-<div class="col-md-6">
-    <div class="card card4" style="width: 8rem;">
-
-            <a href="#" class="btn btn-primary w-100" onclick="logout()">Logout</a>
-
-    </div>
 </div>
 
 </ul>

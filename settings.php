@@ -57,7 +57,7 @@ img {
 <script>
    $(document).ready(function(){
     var urlParams = new URLSearchParams(window.location.search);
-    if(!urlParams.get('login')){
+    if(!urlParams.get('login') && !urlParams.get('age')){
         $('#firstname').prop('disabled', true);
         $('#lastname').prop('disabled', true);
         $('#age').prop('disabled', true);
@@ -153,7 +153,8 @@ $(function(){
     <label for="lastname">Age</label>
     <input type="number" required name="age" id="age" class="form-control" value="<?php echo $age;?>" />
     </div>
-    </div>
+</div>
+<div id="invalidAge" style="color:red;font-size:14px;visibility:hidden">Minimum age allowed is 15</div>
     <div class="form-group">
     <label for="inputEmail4">Email</label>
     <input type="email" required class="form-control" name="inputEmail" id="inputEmail4" value="<?php echo $email;?>" />

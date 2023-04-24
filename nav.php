@@ -214,7 +214,7 @@ section {
     <h2>GamerMatch</h2>
   </div>
   <ul class="links">
-    <li><a href="../home/home.php">Home</a></li>
+    <li><a href="../home.php">Home</a></li>
     <li><a href="../conversation/conversation.php">Messages</a></li>
     <li><a href="../PlayerMatch.php">Find Users</a></li>
     <li><a href="../settings.php">Profile</a></li>
