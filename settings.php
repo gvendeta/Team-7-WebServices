@@ -56,15 +56,17 @@ img {
 
 <script>
    $(document).ready(function(){
-    $('#firstname').prop('disabled', true);
-    $('#lastname').prop('disabled', true);
-    $('#age').prop('disabled', true);
-    $('#inputEmail4').prop('disabled', true);
-    $('#inputAddress5').prop('disabled', true);
-    $('#inputState5').prop('disabled', true);
-    $('#inputZip5').prop('disabled', true);
-    $('#inputphonenum5').prop('disabled', true);
-
+    var urlParams = new URLSearchParams(window.location.search);
+    if(!urlParams.get('login')){
+        $('#firstname').prop('disabled', true);
+        $('#lastname').prop('disabled', true);
+        $('#age').prop('disabled', true);
+        $('#inputEmail4').prop('disabled', true);
+        $('#inputAddress5').prop('disabled', true);
+        $('#inputState5').prop('disabled', true);
+        $('#inputZip5').prop('disabled', true);
+        $('#inputphonenum5').prop('disabled', true);
+    }
 
     $('#pageEdit').click(function(){
         $('#firstname').prop('disabled', false);
@@ -188,32 +190,39 @@ $(function(){
     <div class="col-md-6">
     <div class="form-group">
     <label for="inputPassword4">Old Password</label>
-    <input type="password" class="form-control" id="inputPassword4" />
+    <input type="password" class="form-control" id="inputPassword4" name="inputPassword4" />
     </div>
     <div class="form-group">
     <label for="inputPassword5">New Password</label>
-    <input type="password" class="form-control" id="inputPassword5" />
+    <input type="password" class="form-control" id="inputPassword5" name="inputPassword5" />
     </div>
     <div class="form-group">
     <label for="inputPassword6">Confirm Password</label>
-    <input type="password" class="form-control" id="inputPassword6" />
+    <input type="password" class="form-control" id="inputPassword6" name="inputPassword6" />
     </div>
     </div>
     <div class="col-md-6">
-    <p class="mb-2">Create Password</p>
-    <p class="small text-muted mb-2">Password Requirements</p>
-    <ul class="small text-muted pl-4 mb-0">
-    <li>Minimum 8 characters</li>
-    <li>At least one special character</li>
-    <li>At least one uppercase letter</li>
-    <li>At least one lowercase letter</li>
-    <li>At least one number</li>
-    </ul>
+        <p class="small text-muted mb-2">Password Requirements</p>
+        <div class="confirmFail">
+            <ul>
+            <li>Minimum 8 characters</li>
+            <li>At least one special character</li>
+            <li>At least one uppercase letter</li>
+            <li>At least one lowercase letter</li>
+            <li>At least one number</li>
+            </ul>
+        </div>
     </div>
+    <div id="invalidCred" style="color:red;font-size:14px;visibility:hidden;display:none">Old password does not exist</div>
+    <div id="invalidPassword" style="color:red;font-size:14px;visibility:hidden">Passwords do not match.</div>
     </div>
     <button type="submit"  class="btn btn-primary">Save Changes</button>
-    </div>
+</div>
 </form>
+
+<?php 
+include './verify.php'
+?>
 
 </div>
 </div>

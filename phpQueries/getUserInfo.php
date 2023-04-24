@@ -8,6 +8,7 @@ $address;
 $state;
 $stateShort;
 $zip;
+$age;
 $phoneNum;
 
 include './db.php';
@@ -23,6 +24,7 @@ $row = mysqli_fetch_array($result);
 
 $firstName = $row['firstName'];
 $lastName = $row['lastName'];
+$age = $row['Age'];
 $email = $row['email'];
 $state = $row['state'];
 $address = $row['streetAddress'];

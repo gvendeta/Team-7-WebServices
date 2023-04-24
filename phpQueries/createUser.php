@@ -43,7 +43,7 @@ $sql = "INSERT INTO Users(username,firstName,lastName,age,phoneNum,email,passwor
 VALUES('$cUsername','$cFirstName','$cLastName','$cAge','$cPhone','$cEmail',PASSWORD('$cPassword'))";
 
 if ($conn->query($sql) === TRUE) {
-	if($conn->affected_rows==0){
+	if($conn->affected_rows == 0){
 		echo '<script>alert("We had trouble creating your account. Please try again.");
 		window.location.href="../index.php";
 		</script>';
