@@ -48,7 +48,7 @@ ul {
 .navbar ul.links li {
   text-transform: uppercase;
   padding: 0 15px;
-  height: 65px;
+  height: 35px;
   display: flex;
   justify-content: center;
   align-items: center;
